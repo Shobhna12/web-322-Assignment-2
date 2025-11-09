@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= project.title %> - Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const res = await fetch("https://dummyjson.com/quotes/random");
+        const data = await res.json();
+        document.getElementById("quote").innerHTML = `"${data.quote}"<br /><em>- ${data.author}</em>`;
+      } catch {
+        document.getElementById("quote").innerHTML = "“Sustainability starts with awareness.”";
+      }
+    });
+  </script>
+</head>
+
+<body tabindex="-1">
+
+  <!-- Navbar -->
+  <div class="navbar bg-base-100 shadow-sm">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl" href="/">Climate Solutions</a>
+    </div>
+    <div class="navbar-center hidden sm:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/solutions/projects">View Projects</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="container mx-auto p-6">
+
+    <!-- Title Section -->
+    <div class="hero bg-base-200 rounded-lg p-8 mb-10">
+      <div class="hero-content text-center">
+        <div class="max-w-lg">
+          <h1 class="text-5xl font-bold"><%= project.title %></h1>
+          <p class="py-6">Below, you will find detailed information about the project: <%= project.title %></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two-column Layout -->
+    <div class="flex flex-col md:flex-row md:items-start md:space-x-10 gap-6">
+      <!-- Left: Image -->
+      <div class="md:w-1/2">
+        <img class="rounded-lg shadow-lg w-full object-cover" src="<%= project.feature_img_url %>" alt="<%= project.title %>">
+      </div>
+
+      <!-- Right: Text Content -->
+      <div class="prose md:w-1/2 max-w-none">
+        <p class="leading-relaxed"><%= project.intro_short %></p>
+
+        <h3 class="font-bold mt-6 mb-2 text-lg">Impact</h3>
+        <p><%= project.impact %></p>
+
+        <h3 class="font-bold mt-6 mb-2 text-lg">Sector</h3>
+        <p><span class="badge badge-primary"><%= project.sector_name %></span></p>
+
+        <h3 class="font-bold mt-6 mb-2 text-lg">More Information</h3>
+        <a href="<%= project.original_source_url %>" target="_blank" class="text-primary hover:underline">
+          <%= project.original_source_url %>
+        </a>
+
+        <div id="quote" class="italic mt-8 text-gray-500"></div>
+
+        <div class="mt-8">
+          <a class="btn btn-primary btn-sm" href="#" onclick="history.back(); return false;">RETURN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

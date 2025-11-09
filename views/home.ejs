@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Home - Climate Solutions</title>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+
+  <body class="bg-base-100 min-h-screen">
+    <!-- Navbar -->
+    <%- include('partials/navbar', { page }) %>
+
+    <!-- Hero Section -->
+    <section class="hero bg-base-200 p-10 text-center shadow-lg">
+      <div>
+        <h1 class="text-5xl font-bold mb-4">Welcome to Climate Solutions</h1>
+        <p class="text-lg mb-6">
+          Explore real projects that help protect our planet 🌍
+        </p>
+        <a href="/solutions/projects" class="btn btn-primary">View Projects</a>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <main class="container mx-auto p-10">
+      <h2 class="text-4xl font-bold text-center mb-10">Featured Projects</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <% featured.forEach(p => { %>
+          <div class="card bg-base-200 shadow-xl">
+            <figure>
+              <img src="<%= p.feature_img_url %>" alt="<%= p.title %>">
+            </figure>
+            <div class="card-body">
+              <h3 class="card-title"><%= p.title %></h3>
+              <p><%= p.summary_short %></p>
+              <div class="card-actions justify-end">
+                <a href="/solutions/projects/<%= p.id %>" class="btn btn-primary">Details</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body tabindex="-1">
+  <!-- Navbar -->
+  <div class="navbar bg-base-100 shadow-sm">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl" href="/">Climate Solutions</a>
+    </div>
+    <div class="navbar-center hidden sm:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a class="active" href="/solutions/projects">View Projects</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="container mx-auto p-6">
+    <div class="hero bg-base-200 rounded-lg p-8 mb-10">
+      <div class="hero-content text-center">
+        <div class="max-w-lg">
+          <h1 class="text-5xl font-bold">Projects</h1>
+          <p class="py-6">
+            Browse the current list of Projects in our database. Click the theme to filter by sectors such as:<br><br>
+            <a href="/solutions/projects?sector=Industry" class="btn btn-primary btn-xs">Industry</a>
+            <a href="/solutions/projects?sector=Transportation" class="btn btn-primary btn-xs">Transportation</a>
+            <a href="/solutions/projects?sector=Electricity" class="btn btn-primary btn-xs">Electricity</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects List -->
+    <div class="overflow-x-auto rounded-lg shadow-lg">
+      <table class="table table-zebra w-full">
+        <tbody>
+          <% projects.forEach(p => { %>
+            <tr class="hover:bg-base-200 transition-all border-b border-base-300">
+              <td class="font-bold w-1/4 align-top py-6 px-4 text-lg"><%= p.title %></td>
+              <td class="w-1/5 align-top py-6 px-4">
+                <a href="/solutions/projects?sector=<%= p.sector_name %>" class="btn btn-xs"><%= p.sector_name %></a>
+              </td>
+              <td class="text-sm w-2/3 align-top py-6 px-4"><%= p.summary_short %></td>
+              <td class="text-right align-top py-6 px-4">
+                <a href="/solutions/projects/<%= p.id %>" class="btn btn-xs btn-primary">details</a>
+              </td>
+            </tr>
+            <!-- Extra spacing between projects -->
+            <tr><td colspan="4" class="h-6"></td></tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

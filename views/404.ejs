@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>404 - Not Found</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <%- include('partials/navbar', { page: page }) %>
+  <main style="max-width:900px;margin:0 auto;padding:40px;text-align:center;">
+    <h1>404</h1>
+    <p><%= message || 'Page not found' %></p>
+    <p><a href="/" class="btn">Return Home</a></p>
+  </main>
+</body>
+</html>
