@@ -1,9 +1,14 @@
 /********************************************************************************
- *  WEB322 – Assignment 2
- *  Name: Shobhna Beniwal
- *  Date: (add your submission date)
- *  Student ID: (add your student ID)
- ********************************************************************************/
+* WEB322 – Assignment 02
+*
+* I declare that this assignment is done primarily by myself. I used ChatGPT for
+* guidance and clarification on formatting and EJS structure.
+*
+* https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
+*
+* Name: Shobhna Student ID: 106373244 Date: 09-11-2025
+*
+********************************************************************************/
 
 const express = require("express");
 const path = require("path");
